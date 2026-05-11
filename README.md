@@ -23,3 +23,44 @@ Pastikan kamu sudah menginstal **Python 3.9** atau lebih baru. Kemudian, instal 
 
 ```bash
 pip install rich undetected-chromedriver openpyxl
+
+Catatan: Pastikan browser Google Chrome versi terbaru sudah terinstal di komputer/laptop kamu.
+
+🚀 Cara Penggunaan
+Clone repositori ini:
+
+Bash
+git clone [https://github.com/ilhamrofiqi/shopee_price_analyzer.git](https://github.com/ilhamrofiqi/shopee_price_analyzer.git)
+cd shopee_price_analyzer
+Jalankan skrip utama:
+
+Bash
+python shopee_price_analyzer.py
+Pilih Mode Input:
+Saat program berjalan, kamu akan diminta memilih mode:
+
+Mode 1 (Single): Masukkan nama produk/keyword dan harga jualmu secara manual di terminal.
+
+Mode 2 (Bulk): Buat file teks (contoh: produk.txt) di folder yang sama. Isi file tersebut menggunakan format Nama Keyword | Harga Jual Kamu. Contoh isi file produk.txt:
+
+Plaintext
+Power Supply MSI MAG A650BN 650W | 751000
+Power Supply FSP HV PRO 550W 85+ | 683000
+Memory RAM Kingston Fury Beast 16GB | 850000
+Tunggu proses berjalan. Skrip akan membuka Chrome (otomatis scroll untuk lazy-loading), menarik data, melakukan perhitungan statistik, dan menampilkannya di terminal.
+
+Setelah selesai, tekan y jika kamu ingin menyimpan hasil analisa ke format Excel.
+
+📊 Contoh Hasil Analisa
+Tool ini akan memberikan matriks dan rekomendasi detail seperti:
+
+Statistik Kompetitor: Nilai Minimum, Q1, Median, Average (Bersih tanpa Outlier), Q3, dan Maksimum.
+
+Posisi Harga: Status apakah harga kamu "Sangat Murah", "Rata-rata Pasar", atau "Mahal".
+
+Rekomendasi Shopee Ads: Penilaian apakah produk aman dan memiliki potensi Conversion Rate (CVR) yang baik jika diiklankan.
+
+Top 15 Terlaris: Menampilkan produk kompetitor yang paling banyak terjual untuk dianalisa lebih lanjut (foto, deskripsi, voucher yang mereka pakai).
+
+⚠️ Disclaimer
+Project ini dibuat khusus untuk tujuan riset internal, pembelajaran analitik data, dan optimasi e-commerce. Web scraping harus dilakukan secara bertanggung jawab dan mematuhi Ketentuan Layanan (Terms of Service) dari platform terkait. Jangan membebani server secara masif (lakukan delay yang wajar). Pengembang tidak bertanggung jawab atas penyalahgunaan tool ini.
