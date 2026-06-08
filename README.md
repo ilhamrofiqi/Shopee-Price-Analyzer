@@ -3,68 +3,103 @@
 ![Python Version](https://img.shields.io/badge/python-3.9+-blue.svg)
 ![Selenium](https://img.shields.io/badge/selenium-webdriver-green.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-active-brightgreen.svg)
 
 **Shopee Price Analyzer** adalah *tool* Python otomatis untuk riset harga kompetitor di Shopee secara massal. Dilengkapi metode *scraping* visual DOM untuk menghindari *blocking*, filter statistik IQR untuk membuang harga palsu/tidak wajar, dan *export* Excel guna keperluan optimasi strategi harga e-commerce.
 
+---
+
+## 💡 Latar Belakang
+
+Proses riset harga kompetitor di Shopee yang dilakukan secara manual — copy-paste satu per satu untuk ratusan SKU — sangat memakan waktu dan rentan *human error*. Tool ini dibuat untuk mengotomasi seluruh proses tersebut, sehingga riset yang biasanya memakan waktu berjam-jam bisa selesai dalam hitungan menit dengan data yang lebih bersih dan terstruktur.
+
+---
+
 ## ✨ Fitur Utama
 
-- 🛡️ **Anti-Block Scraping:** Menggunakan `undetected-chromedriver` untuk meniru perilaku manusia dan membaca elemen DOM secara visual (mengabaikan restriksi API tradisional).
-- 📈 **Filter Statistik IQR:** Secara otomatis mendeteksi dan membuang *outlier* (seperti harga aksesoris receh atau produk *bundling* super mahal) agar perhitungan rata-rata pasar lebih akurat.
-- 📦 **Single & Bulk Input Mode:** Mengecek satu produk secara manual, atau menganalisa ratusan SKU sekaligus dengan mengimpor file `.txt`.
-- 🏪 **Smart Own-Shop Detection:** Otomatis mendeteksi toko milikmu sendiri di antara daftar kompetitor (memvalidasi selisih harga 0 dan lokasi/domisili toko).
-- 📊 **Excel Report Generation:** Mengekspor laporan riset pasar komprehensif ke format `.xlsx` yang terdiri dari 3 *sheet* (Summary Analisa, Top 15 Terlaris, dan Raw Data).
-- 🎨 **Rich Terminal UI:** Menampilkan laporan statistik, CVR (*Conversion Rate*), dan rekomendasi Shopee Ads di terminal secara visual dan berwarna berkat library `rich`.
+| Fitur | Deskripsi |
+|---|---|
+| 🛡️ **Anti-Block Scraping** | Menggunakan `undetected-chromedriver` untuk meniru perilaku manusia, menghindari deteksi bot |
+| 📈 **Filter Statistik IQR** | Otomatis membuang harga *outlier* agar rata-rata pasar yang dihasilkan lebih akurat |
+| 📦 **Single & Bulk Mode** | Analisa satu produk secara manual, atau ratusan SKU sekaligus via file `.txt` |
+| 🏪 **Smart Own-Shop Detection** | Otomatis mendeteksi dan mengecualikan toko milik sendiri dari daftar kompetitor |
+| 📊 **Excel Report Generation** | Ekspor laporan `.xlsx` lengkap dengan 3 *sheet*: Summary, Top 15 Terlaris, Raw Data |
+| 🎨 **Rich Terminal UI** | Tampilan statistik, CVR, dan rekomendasi Shopee Ads yang berwarna di terminal |
+
+---
 
 ## 🛠️ Prasyarat (Prerequisites)
 
-Pastikan kamu sudah menginstal **Python 3.9** atau lebih baru, dan memiliki *browser* Google Chrome versi terbaru. 
+Pastikan kamu sudah menginstal:
+- **Python 3.9** atau lebih baru
+- **Google Chrome** versi terbaru
 
-Instal semua dependensi (*library*) yang dibutuhkan dengan menjalankan perintah berikut di terminal:
+Instal semua dependensi yang dibutuhkan:
 
 ```bash
 pip install rich undetected-chromedriver openpyxl
 ```
 
+---
+
 ## 🚀 Cara Penggunaan
 
-1. Clone repositori ini:
+**1. Clone repositori ini:**
 
-```Bash
+```bash
 git clone https://github.com/ilhamrofiqi/Shopee-Price-Analyzer.git
+cd Shopee-Price-Analyzer
 ```
 
-2. Jalankan skrip utama:
+**2. Jalankan skrip utama:**
 
-```Bash
+```bash
 python shopee_price_analyzer.py
 ```
 
-3. Pilih Mode Input saat program berjalan:
+**3. Pilih Mode Input saat program berjalan:**
 
-- Mode 1 (Single): Masukkan nama produk/keyword dan target harga jualmu secara manual di terminal.
+- **Mode 1 — Single:** Masukkan nama produk/keyword dan target harga jualmu secara manual di terminal.
+- **Mode 2 — Bulk:** Buat file `produk.txt` di folder yang sama dengan format `Keyword | Harga Jual`. Contoh:
 
-- Mode 2 (Bulk): Buat file teks bernama produk.txt di folder yang sama. Isi file tersebut dengan format Keyword | Harga Jual Kamu. Contoh:
-
-```Plaintext
+```plaintext
 Power Supply MSI MAG A650BN 650W | 751000
 Power Supply FSP HV PRO 550W 85+ | 683000
 Memory RAM Kingston Fury Beast 16GB | 850000
 ```
 
-4. Tunggu proses analisis berjalan. Skrip akan otomatis membuka Chrome, menarik data, dan menampilkan hasil statistik langsung di layar.
+**4.** Tunggu proses analisis. Skrip akan otomatis membuka Chrome, menarik data, dan menampilkan hasil statistik langsung di layar.
 
-5. Di akhir proses, ketik y jika kamu ingin menyimpan keseluruhan analisis ke dalam format laporan Excel (.xlsx).
+**5.** Di akhir proses, ketik `y` untuk menyimpan hasil analisis ke laporan Excel (`.xlsx`).
+
+---
 
 ## 📊 Output Analisis
-Tool ini akan menyajikan metrik bisnis yang langsung dapat ditindaklanjuti (actionable insights):
 
-- Statistik Kompetitor (Bersih dari Outlier): Menghitung nilai Min, Q1, Median, Average, Q3, dan Max.
+Tool ini menghasilkan *actionable insights* yang siap digunakan untuk pengambilan keputusan harga:
 
-- Analisa Posisi Harga: Menilai apakah hargamu "Sangat Murah", "Rata-rata Pasar", atau "Mahal".
+- **Statistik Kompetitor (Bersih dari Outlier)** — nilai Min, Q1, Median, Average, Q3, dan Max
+- **Analisa Posisi Harga** — menilai apakah hargamu *Sangat Murah*, *Rata-rata Pasar*, atau *Mahal*
+- **Rekomendasi Shopee Ads** — kelayakan iklan berdasarkan *Expected Conversion Rate* (CVR)
+- **Top 15 Kompetitor Terlaris** — peringkat kompetitor beserta selisih harga terhadap produkmu
 
-- Rekomendasi Shopee Ads: Memberikan analisis kelayakan iklan berdasarkan Expected Conversion Rate (CVR) dari persaingan harga.
+---
 
-- Top 15 Kompetitor (Terlaris): Mengurutkan kompetitor penguasa pasar di keyword tersebut beserta selisih harga produk mereka dengan produkmu.
+## 🧰 Tech Stack
 
-##⚠️ Disclaimer
-Project ini dibuat khusus untuk tujuan riset internal, pembelajaran data analytics, dan optimasi strategi e-commerce. Web scraping harus dilakukan secara bertanggung jawab dengan mematuhi Ketentuan Layanan (Terms of Service) dari platform terkait. Pengembang tidak bertanggung jawab atas penyalahgunaan tool ini.
+| Library | Fungsi |
+|---|---|
+| `undetected-chromedriver` | Anti-bot scraping via visual DOM |
+| `selenium` | Otomasi browser |
+| `openpyxl` | Generate laporan Excel |
+| `rich` | Terminal UI yang berwarna dan terstruktur |
+
+---
+
+## 📄 Lisensi
+
+Didistribusikan di bawah **MIT License**. Lihat file `LICENSE` untuk detail lebih lanjut.
+
+## ⚠️ Disclaimer
+
+Project ini dibuat untuk tujuan riset internal, pembelajaran *data analytics*, dan optimasi strategi e-commerce. *Web scraping* harus dilakukan secara bertanggung jawab dengan mematuhi Ketentuan Layanan (*Terms of Service*) dari platform terkait. Pengembang tidak bertanggung jawab atas penyalahgunaan *tool* ini.
