@@ -30,8 +30,7 @@ pip install rich undetected-chromedriver openpyxl
 1. Clone repositori ini:
 
 ```Bash
-git clone [https://github.com/ilhamrofiqi/Shopee-Price-Analyzer.git](https://github.com/ilhamrofiqi/Shopee-Price-Analyzer.git)
-cd Shopee-Price-Analyzer
+git clone https://github.com/ilhamrofiqi/Shopee-Price-Analyzer.git
 ```
 
 2. Jalankan skrip utama:
