@@ -11,7 +11,7 @@
 
 ## 💡 Latar Belakang
 
-Proses riset harga kompetitor di Shopee yang dilakukan secara manual — copy-paste satu per satu untuk ratusan SKU — sangat memakan waktu dan rentan *human error*. Tool ini dibuat untuk mengotomasi seluruh proses tersebut, sehingga riset yang biasanya memakan waktu berjam-jam bisa selesai dalam hitungan menit dengan data yang lebih bersih dan terstruktur.
+Proses riset harga kompetitor di Shopee yang dilakukan secara manual — copy-paste satu per satu untuk ratusan SKU atau keyword — sangat memakan waktu dan rentan *human error*. Tool ini dibuat untuk mengotomasi seluruh proses tersebut, sehingga riset yang biasanya memakan waktu berjam-jam bisa selesai dalam hitungan menit dengan data yang lebih bersih dan terstruktur.
 
 ---
 
